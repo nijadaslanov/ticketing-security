@@ -58,50 +58,33 @@ public class SecurityConfig {
 //                .antMatchers("task/**").hasAuthority("ROLE_EMPLOYEE")
 
                 .antMatchers(
-                       "/",
-                       "/login",
-                       "/fragments/**",
-                       "/assets/**",
-                       "/images/**"
+                        "/",
+                        "/login",
+                        "/fragments/**",
+                        "/assets/**",
+                        "/images/**"
                 ).permitAll()
                 .anyRequest().authenticated()
                 .and()
 //                .httpBasic()
                 .formLogin()
-                    .loginPage("/login")
+                .loginPage("/login")
 //                    .defaultSuccessUrl("/welcome")
-                    .successHandler(authSuccessHandler)
-                    .failureUrl("/login?error=true")
-                    .permitAll()
+                .successHandler(authSuccessHandler)
+                .failureUrl("/login?error=true")
+                .permitAll()
                 .and()
                 .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/login")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
                 .and()
                 .rememberMe()
-                    .tokenValiditySeconds(120)
-                    .key("cydeo")
-                    .userDetailsService(securityService)
+                .tokenValiditySeconds(120)
+                .key("cydeo")
+                .userDetailsService(securityService)
                 .and().build();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

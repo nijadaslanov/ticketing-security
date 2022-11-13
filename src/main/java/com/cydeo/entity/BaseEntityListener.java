@@ -1,7 +1,7 @@
 package com.cydeo.entity;
 
 import com.cydeo.entity.common.UserPrincipal;
-import com.fasterxml.jackson.databind.ser.Serializers;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,7 +33,6 @@ public class BaseEntityListener extends AuditingEntityListener {
 
 
     }
-
     @PreUpdate
     public void onPreUpdate(BaseEntity baseEntity){
 
